@@ -1,0 +1,108 @@
+
+-->Dao Content
+//	========Some JPA Custom method===========================
+	public User findByNameAndQualification(String name, String qualification); 
+	public List<User> findByNameStartingWith(String name);
+	public List<User> findByNameEndingWith(String name);
+	public List<User> findByNameContaining(String word);
+	
+	public List<User> findByAgeLessThan(int age);
+	public List<User> findByAgeGreaterThan(int age);
+	
+//	========Some JPA Query/Hibernate Query=============
+	
+	@Query("select u from User u")
+	public List<User> getAllUsers();
+	
+	@Query("select u from User u where u.name =:n")
+	public List<User> getUserByName(@Param("n") String name);
+	
+	@Query(value="select * from user", nativeQuery = true) 
+	public List<User> getUser();
+	
+===================================================================================================
+
+-->Application context --->=content
+===========================InsertUser Using Spring JPA================================
+
+//		User user = new User();
+//		user.setName("Rahul");
+//		user.setNativeCity("Badlapur");
+//		user.setQualification("B.A.");
+//		
+//		User user1=repo.save(user);
+//		
+//		User user2 = new User();
+//		user2.setName("Dharmendra");
+//		user2.setNativeCity("Basti");
+//		user2.setQualification("B.Com");
+//		
+//		User user3=repo.save(user2);
+//		System.out.println(user1+" "+user3);
+		
+		
+//		===========================Update user Using Spring JPA=================================
+//		First u have to get the id which one u have to update============
+		
+//		Optional<User> optional=repo.findById(6);    //==Get the using find method and return Optional 
+//		User user=optional.get();
+//		System.out.println(user);
+//		user.setName("Shivani");
+//		user.setNativeCity("Mumbai");
+//		user.setQualification("B.S.C");
+//		User user1=repo.save(user);
+//		System.out.println(user1+" =====");
+		
+		
+//		===========================Get All data Using Spring JPA=================================
+		
+//		Type--1
+//		List<User> list=(List<User>) repo.findAll();
+//		for(User u:list) {
+//			
+//			System.out.println(u);
+//		}
+		
+//		Type----2
+//		Iterable<User> itr=repo.findAll();
+//		itr.forEach(user->{System.out.println(user);});
+		
+		
+//		===========================Delete User data Using Spring JPA=================================
+//		1) Delete Single User===
+//		repo.deleteById(1);
+//		System.out.println("Done");
+		
+//		2) Delete All User==
+//		Iterable<User> itr=repo.findAll();
+//		itr.forEach(user->{System.out.println(user);});
+//		repo.deleteAll(itr);
+		
+//		3) Delete Selected id===
+//		List<Integer> list1 = new ArrayList<Integer>();
+//		list1.add(14);
+//		list1.add(15);
+//		repo.deleteAllById(list1);
+		
+		
+//		=====================JPA Custom query for login and access Data=====================
+//		User u=repo.findByNameAndQualification("Vikas", "Eng");
+//		u.forEach(user->{System.out.println(user);});
+//		System.out.println(u);
+		
+//		2)Type=====Native mysql query
+//		List<User> list=repo.getUser();
+//		list.forEach(e->{System.out.println(e);});
+		
+		
+//		3)Type==JPQL
+		List<User> list=repo.getUserByName("Lavkush");
+		list.forEach(e->{System.out.println(e);});
+		
+		=================More Data====================================
+		
+//  @Query("select u from users u")
+//	public List<Users> getAllUsers();
+//	
+//	@Query("select u from users u where u.name =:n")
+//	public List<Users> getUserByName(@Param("n") String name);
