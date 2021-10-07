@@ -18,7 +18,7 @@
 		<div class="alert alert-danger text-center " role="alert">
 				${failedMsg}
 			</div>
-			<a href="view/0">View All Data</a><br/>
+			<a href="view/1">View All Data</a><br/>
 			<a href="loginForm">Click to login</a>
 		<br />
 		<form action="register" method="post">

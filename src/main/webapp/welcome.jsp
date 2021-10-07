@@ -79,13 +79,13 @@ int p=(int)session.getAttribute("Pages");
 <div class="pagination d-flex justify-content-center mb-3">
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-  <c:if test="${Pages != 0}">
+  <c:if test="${Pages != 1}">
     <li class="page-item"><a class="page-link" href="/view/${page-1}">Previous</a></li>
      </c:if>
-     <c:forEach begin="0" end="${totalPages-1}" var="page">
-    <li class="page-item"><a class="page-link ${Pages==page ? 'active' : ''}"  href="/view/${page}">${page+1}</a></li>
+     <c:forEach begin="1" end="${totalPages}" var="page">
+    <li class="page-item"><a class="page-link ${Pages==page ? 'active' : ''}"  href="/view/${page}">${page}</a></li>
     </c:forEach>
-    <c:if test="${Pages != totalPages-1}">
+    <c:if test="${Pages != totalPages}">
     <li class="page-item"><a class="page-link " href="/view/${page+1}">Next</a></li>
     </c:if>
   </ul>

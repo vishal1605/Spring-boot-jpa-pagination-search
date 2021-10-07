@@ -65,7 +65,7 @@ public class MainController {
 	//View All data with Pagination
 	@GetMapping(path="/view/{page}")
 	public String getUsers(@PathVariable("page") Integer page, HttpSession session,Model m) {
-		Pageable pageable=PageRequest.of(page, 5);
+		Pageable pageable=PageRequest.of(page-1, 5);
 //		System.out.println(keyword);
 		Page<Users> list=(Page<Users>) dao.findAllUsers(pageable);		
 		session.setAttribute("AllUsers", list);
@@ -98,7 +98,7 @@ public class MainController {
 		Users u1=dao.save(user);
 		System.out.println(u1);
 		
-		return "redirect:/view/0";
+		return "redirect:/view/1";
 	}
 	
 	
@@ -106,7 +106,7 @@ public class MainController {
 	@GetMapping(path="/delete/{uId}")
 	public String deleteUser(@PathVariable("uId") int id) {
 		dao.deleteById(id);
-		return "redirect:/view/0";
+		return "redirect:/view/1";
 	}
 	
 	
