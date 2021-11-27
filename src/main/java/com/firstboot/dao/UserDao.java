@@ -27,5 +27,19 @@ public interface UserDao extends JpaRepository<Users, Integer> {
 	
 	//Search function
 	public List<Users> findByUserNameContaining(String keywords);
+        
+        //Search function by keyword
+//	@Query(value="select * from users_details u where u.username like %:keyword%", nativeQuery = true)
+//	public List<Users> searchByKeyword(@Param("keyword") String keyword);
+	
+	//Search function by keyword 2
+	@Query(value="select * from users_details where username like %?1%", nativeQuery = true)
+	public List<Users> searchByKeyword(String keyword);
+	
+	//Search function by keyword 3
+//	@Query(value="select * from users_details where username like %?1% or email like %?1%", nativeQuery = true)
+//	public List<Users> searchByKeyword(String keyword);
+
+
 		
 }

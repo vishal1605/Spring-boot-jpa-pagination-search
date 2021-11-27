@@ -133,7 +133,7 @@ public class MainController {
 	
 	@PostMapping("/view/search")
 	public String searchResult(@RequestParam("query") String keyword, Model m) {
-		List<Users> containing = dao.findByUserNameContaining(keyword);
+		List<Users> containing = dao.searchByKeyword(keyword);
 		System.out.println(containing);
 		m.addAttribute("AllUsers", containing);
 		return "/search-result";
