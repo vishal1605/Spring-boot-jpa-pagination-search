@@ -17,11 +17,11 @@ public class Users {
 	@GeneratedValue(strategy = GenerationType.AUTO)   //it give for auto increament and auto generation of id
 	private int uId;
 	
-	@Column(name = "username", columnDefinition = "varchar(500)")  // it uses for give column name
+	@Column(name = "username", columnDefinition = "varchar(500)") // it uses for give column name and Default is--> columnDefinition = "varchar(500) default 0 and ' ' "
 	@JsonIgnore
 	private String userName;
 	
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true)  // columnDefinition = "BIGINT(20) default 0"
 	private String email;
 	
 	@Column(nullable = false)
