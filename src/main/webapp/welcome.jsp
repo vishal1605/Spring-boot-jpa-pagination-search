@@ -28,8 +28,13 @@ color: white;
 <div class="search-container m-4" style="position: relative;">
 <form class="form-inline" action="/view/search" method="post">
   <div class="form-group mx-sm-3 mb-2">
-    <input type="text" class="form-control" id="inputPassword2" name="query" placeholder="search here" style="width: 1300px">
-  </div>
+    <input type="text" class="form-control" id="inputPassword2" name="query" placeholder="search here" style="width: 500px">
+  </div><span>Search by</span>&nbsp;
+  <select class="form-control" id="form_option" name="options">
+      <option value="userName">userName</option>
+      <option value="email">email</option>
+      <option value="city">city</option>
+    </select>&nbsp;&nbsp;
   <button type="submit" class="btn btn-primary mb-2">Search</button>&nbsp;
   <button type="reset" class="btn btn-primary mb-2">Clear</button>
 </form>

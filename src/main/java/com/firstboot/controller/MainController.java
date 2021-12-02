@@ -132,10 +132,31 @@ public class MainController {
 	}
 	
 	@PostMapping("/view/search")
-	public String searchResult(@RequestParam("query") String keyword, Model m) {
-		List<Users> containing = dao.searchByKeyword(keyword);
-		System.out.println(containing);
-		m.addAttribute("AllUsers", containing);
+	public String searchResult(@RequestParam("query") String keyword, @RequestParam("options") String options, Model m) {
+		switch(options) {
+		case "userName":
+			List<Users> list = dao.searchByUserName(keyword);
+			m.addAttribute("AllUsers", list);
+			break;
+			
+		case "email":
+			List<Users> list1 = dao.searchByEmail(keyword);
+			m.addAttribute("AllUsers", list1);
+			break;
+			
+		case "city":
+			List<Users> list2 = dao.searchByCity(keyword);
+			m.addAttribute("AllUsers", list2);
+			break;
+			
+		default:
+			System.out.println("Nothing");
+		}
+		
+//		List<Users> list = dao.searchByKeywords(keyword);
+//		System.out.println(options);
+//		m.addAttribute("AllUsers", list);
+		
 		return "/search-result";
 		
 	}
