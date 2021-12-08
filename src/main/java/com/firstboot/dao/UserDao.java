@@ -63,5 +63,14 @@ public interface UserDao extends JpaRepository<Users, Integer> {
 	// Search function using regexp
 //	@Query(value = "select * from sql_tutorial where name regexp ?1 or age regexp ?1", nativeQuery = true)
 //	public List<SqlTutorial> searchResult(String keyword);
+	
+	//Native SQL ORDER BY like 1,2,3, and A,B,C
+//	@Query(value = "select * from o_history where customer_b_id=? ORDER BY h_id DESC", nativeQuery = true) Or select * from table_name order by column name dec;
+//	select * from table_name order by column_name1, column_name2 dec/asc;
+//	public List<OrderHistory> getAllHistory(long id);
+	
+//	Select specific column using JPQL
+//	@Query(value="select new SqlTutorial(s.id, s.name, s.city, s.date, s.mobileNumber, s.role) from SqlTutorial s")
+//	public List<SqlTutorial> findAllData();
 
 }
