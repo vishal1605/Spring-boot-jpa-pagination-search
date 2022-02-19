@@ -1,4 +1,4 @@
-const search = () => {
+/*const search = () => {
     let query = $("#search-input").val();
 
 if(query == ""){
@@ -9,4 +9,4 @@ if(query == ""){
 	
 }
 }
-;
+;*/
